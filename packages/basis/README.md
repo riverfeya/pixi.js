@@ -1,6 +1,6 @@
 # @pixi/basis
 
-This package contains the loader for *.basis files, and it also ships with the transcoder.
+Этот пакет содержит загрузчик файлов *.basis, а также поставляется с транскодером..
 
 ## Installation
 

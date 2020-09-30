@@ -1,9 +1,9 @@
 import { INTERNAL_FORMATS, TYPES } from '@pixi/constants';
 
 /**
- * The transcoding formats provided by basis_universal.
+ * Форматы перекодирования, предоставляемые basis_universal.
  *
- * NOTE: Not all of these formats are supported on WebGL!
+ * NOTE: Не все эти форматы поддерживаются WebGL!
  *
  * @ignore
  */
@@ -44,10 +44,10 @@ export const BASIS_FORMAT_TO_INTERNAL_FORMAT: { [id: number]: INTERNAL_FORMATS }
 };
 
 /**
- * Maps {@link BASIS_FORMATS} to {@link PIXI.TYPES}. These formats are a fallback when the basis file cannot be transcoded
- * to a valid compressed texture format.
+ * Maps {@link BASIS_FORMATS} to {@link PIXI.TYPES}. Эти форматы являются резервным вариантом, когда базовый файл нельзя перекодировать.
+ * в допустимый сжатый формат текстуры.
  *
- * NOTE: {@link BASIS_FORMATS.cTFBGR565} is not supported, while {@link BASIS_FORMATS.cTFRGBA4444} is not implemented by
+ * NOTE: {@link BASIS_FORMATS.cTFBGR565} не поддерживается, а {@link BASIS_FORMATS.cTFRGBA4444} не реализуется
  *  [at]pixi/basis.
  *
  * @ignore
@@ -74,7 +74,7 @@ export const INTERNAL_FORMAT_TO_BASIS_FORMAT: { [id: number]: number }
         }, {});
 
 /**
- * Enumerates the basis formats with alpha components
+ * Перечисляет базовые форматы с альфа-компонентами
  *
  * @ignore
  */

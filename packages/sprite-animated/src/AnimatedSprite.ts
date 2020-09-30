@@ -4,7 +4,7 @@ import { Ticker, UPDATE_PRIORITY } from '@pixi/ticker';
 import type { IDestroyOptions } from '@pixi/display';
 
 /**
- * An AnimatedSprite is a simple way to display an animation depicted by a list of textures.
+ * AnimatedSprite это простой способ отображения анимации, представленной списком текстур.
  *
  * ```js
  * let alienImages = ["image_sequence_01.png","image_sequence_02.png","image_sequence_03.png","image_sequence_04.png"];
@@ -19,8 +19,8 @@ import type { IDestroyOptions } from '@pixi/display';
  * let animatedSprite = new PIXI.AnimatedSprite(textureArray);
  * ```
  *
- * The more efficient and simpler way to create an animated sprite is using a {@link PIXI.Spritesheet}
- * containing the animation definitions:
+ * Более эффективный и простой способ создать анимированный спрайт - использовать {@link PIXI.Spritesheet}
+ * содержащие определения анимации:
  *
  * ```js
  * PIXI.Loader.shared.add("assets/spritesheet.json").load(setup);
@@ -54,11 +54,11 @@ export class AnimatedSprite extends Sprite
     private _previousFrame: number;
 
     /**
-     * @param {PIXI.Texture[]|PIXI.AnimatedSprite.FrameObject[]} textures - An array of {@link PIXI.Texture} or frame
-     *  objects that make up the animation.
-     * @param {boolean} [autoUpdate=true] - Whether to use PIXI.Ticker.shared to auto update animation time.
+     * @param {PIXI.Texture[]|PIXI.AnimatedSprite.FrameObject[]} textures - как массив {@link PIXI.Texture} или 
+     * объекты frame, составляющие анимацию.
+     * @param {boolean} [autoUpdate=true] - Стоит ли использовать PIXI.Ticker.shared  а
      */
-    constructor(textures: Texture[]|FrameObject[], autoUpdate = true)
+    c оnstructor (textures: Texture[]|FrameObject[], autoUpdate = true)
     {
         super(textures[0] instanceof Texture ? textures[0] : textures[0].texture);
 
@@ -75,25 +75,25 @@ export class AnimatedSprite extends Sprite
         this._durations = null;
 
         /**
-         * `true` uses PIXI.Ticker.shared to auto update animation time.
+         * `true` использует PIXI.Ticker.shared  а
          *
-         * @type {boolean}
+   о      * @ type {boolean}
          * @default true
          * @private
          */
         this._autoUpdate = autoUpdate;
 
         /**
-         * `true` if the instance is currently connected to PIXI.Ticker.shared to auto update animation time.
+         * `true` если экземпляр в настоящее время подключен к PIXI.Ticker.shared  а
          *
-         * @type {boolean}
+   о      * @ type {boolean}
          * @default false
          * @private
          */
         this._isConnectedToTicker = false;
 
         /**
-         * The speed that the AnimatedSprite will play at. Higher is faster, lower is slower.
+         * Скорость, с которой AnimatedSprite будет воспроизводить. Выше - быстрее, ниже - медленнее.
          *
          * @member {number}
          * @default 1
@@ -101,7 +101,7 @@ export class AnimatedSprite extends Sprite
         this.animationSpeed = 1;
 
         /**
-         * Whether or not the animate sprite repeats after playing.
+         * Повторяется ли анимированный спрайт после воспроизведения.
          *
          * @member {boolean}
          * @default true
@@ -109,13 +109,13 @@ export class AnimatedSprite extends Sprite
         this.loop = true;
 
         /**
-         * Update anchor to [Texture's defaultAnchor]{@link PIXI.Texture#defaultAnchor} when frame changes.
+         * Обновить якорь к [Texture's defaultAnchor]{@link PIXI.Texture#defaultAnchor} когда кадр меняется.
          *
-         * Useful with [sprite sheet animations]{@link PIXI.Spritesheet#animations} created with tools.
-         * Changing anchor for each frame allows to pin sprite origin to certain moving feature
-         * of the frame (e.g. left foot).
+         * Полезно с [sprite sheet animations]{@link PIXI.Spritesheet#animations} создан с помощью инструментов.
+         * Изменение якоря для каждого кадра позволяет привязать опорную точку спрайта к определенному движущемуся 
+         * объекту кадра (например левой ноге).
          *
-         * Note: Enabling this will override any previously set `anchor` on each frame change.
+         * Note: Включение этого параметра переопределит любой ранее установленный 'якорь' при каждом изменении кадра.
          *
          * @member {boolean}
          * @default false
@@ -123,7 +123,7 @@ export class AnimatedSprite extends Sprite
         this.updateAnchor = false;
 
         /**
-         * User-assigned function to call when an AnimatedSprite finishes playing.
+         * Назначаемая пользователем функция для вызова после завершения воспроизведения AnimatedSprite.
          *
          * @example
          * animation.onComplete = function () {
@@ -134,7 +134,7 @@ export class AnimatedSprite extends Sprite
         this.onComplete = null;
 
         /**
-         * User-assigned function to call when an AnimatedSprite changes which texture is being rendered.
+         * Назначаемая пользователем функция для вызова, когда AnimatedSprite изменяет визуализируемую текстуру.
          *
          * @example
          * animation.onFrameChange = function () {
@@ -145,8 +145,8 @@ export class AnimatedSprite extends Sprite
         this.onFrameChange = null;
 
         /**
-         * User-assigned function to call when `loop` is true, and an AnimatedSprite is played and
-         * loops around to start again.
+         * Назначенная пользователем функция для вызова при `loop` = true, и AnimatedSprite воспроизводится и
+         * зацикливается, чтобы начать снова.
          *
          * @example
          * animation.onLoop = function () {
@@ -157,7 +157,7 @@ export class AnimatedSprite extends Sprite
         this.onLoop = null;
 
         /**
-         * Elapsed time since animation has been started, used internally to display current texture.
+         * Время, прошедшее с момента запуска анимации, используется внутри для отображения текущей текстуры.
          *
          * @member {number}
          * @private
@@ -167,7 +167,7 @@ export class AnimatedSprite extends Sprite
         this._playing = false;
 
         /**
-         * The texture index that was displayed last time
+         * Индекс текстуры, который отображался в последний раз
          *
          * @member {number}
          * @private
@@ -178,7 +178,7 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Stops the AnimatedSprite.
+     * Останавливает AnimatedSprite.
      *
      */
     public stop(): void
@@ -197,7 +197,7 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Plays the AnimatedSprite.
+     * Воспроизводит AnimatedSprite.
      *
      */
     public play(): void
@@ -216,9 +216,9 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Stops the AnimatedSprite and goes to a specific frame.
+     * Останавливает AnimatedSprite и переходит к определенному кадру.
      *
-     * @param {number} frameNumber - Frame index to stop at.
+     * @param {number} frameNumber - Индекс кадра, на котором нужно остановиться.
      */
     public gotoAndStop(frameNumber: number): void
     {
@@ -235,7 +235,7 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Goes to a specific frame and begins playing the AnimatedSprite.
+     * Переходит к определенному кадру и начинает воспроизведение AnimatedSprite.
      *
      * @param {number} frameNumber - Frame index to start at.
      */
@@ -254,9 +254,9 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Updates the object transform for rendering.
+     * Обновляет преобразование объекта для рендеринга.
      *
-     * @param {number} deltaTime - Time since last tick.
+     * @param {number} deltaTime - Время с последнего тика.
      */
     update(deltaTime: number): void
     {
@@ -329,7 +329,7 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Updates the displayed texture to match the current frame index.
+     * Обновляет отображаемую текстуру в соответствии с индексом текущего кадра.
      *
      * @private
      */
@@ -362,14 +362,14 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Stops the AnimatedSprite and destroys it.
+     * Останавливает AnimatedSprite и уничтожает его.
      *
-     * @param {object|boolean} [options] - Options parameter. A boolean will act as if all options
-     *  have been set to that value.
-     * @param {boolean} [options.children=false] - If set to true, all the children will have their destroy
-     *      method called as well. 'options' will be passed on to those calls.
-     * @param {boolean} [options.texture=false] - Should it destroy the current texture of the sprite as well.
-     * @param {boolean} [options.baseTexture=false] - Should it destroy the base texture of the sprite as well.
+     * @param {object|boolean} [options] - Параметр Options. Логическое значение будет действовать так, как если бы все параметры
+     * были установлены на это значение.
+     * @param {boolean} [options.children=false] - Если установлено значение true, то метод destroy() всех потомков
+     *      также будет вызван. 'options' будут переданы этим вызовам.
+     * @param {boolean} [options.texture=false] - Если он также уничтожит текущую текстуру спрайта.
+     * @param {boolean} [options.baseTexture=false] - Если он также уничтожит базовую текстуру спрайта.
      */
     public destroy(options: IDestroyOptions|boolean): void
     {
@@ -382,11 +382,11 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * A short hand way of creating an AnimatedSprite from an array of frame ids.
+     * Краткий способ создания AnimatedSprite из массива идентификаторов кадров.
      *
      * @static
-     * @param {string[]} frames - The array of frames ids the AnimatedSprite will use as its texture frames.
-     * @return {PIXI.AnimatedSprite} The new animated sprite with the specified frames.
+     * @param {string[]} frames - Массив идентификаторов кадров, который AnimatedSprite будет использовать в качестве кадров текстуры..
+     * @return {PIXI.AnimatedSprite} Новый анимированный спрайт с заданными кадрами.
      */
     public static fromFrames(frames: string[]): AnimatedSprite
     {
@@ -401,11 +401,11 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * A short hand way of creating an AnimatedSprite from an array of image ids.
+     * Краткий способ создания AnimatedSprite из массива идентификаторов изображений.
      *
      * @static
-     * @param {string[]} images - The array of image urls the AnimatedSprite will use as its texture frames.
-     * @return {PIXI.AnimatedSprite} The new animate sprite with the specified images as frames.
+     * @param {string[]} images - Массив URL-адресов изображений, который AnimatedSprite будет использовать в качестве кадров текстуры..
+     * @return {PIXI.AnimatedSprite} Новый анимированный спрайт с указанными изображениями в виде кадров.
      */
     public static fromImages(images: string[]): AnimatedSprite
     {
@@ -420,8 +420,8 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * The total number of frames in the AnimatedSprite. This is the same as number of textures
-     * assigned to the AnimatedSprite.
+     * Общее количество кадров в AnimatedSprite. Это то же самое, что и количество текстур
+     * присвоенных AnimatedSprite.
      *
      * @readonly
      * @member {number}
@@ -433,7 +433,7 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * The array of textures used for this AnimatedSprite.
+     * Массив текстур, используемых для этого AnimatedSprite.
      *
      * @member {PIXI.Texture[]}
      */
@@ -466,7 +466,7 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-    * The AnimatedSprites current frame index.
+    * Индекс текущего кадра AnimatedSprites.
     *
     * @member {number}
     * @readonly
@@ -484,7 +484,7 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Indicates if the AnimatedSprite is currently playing.
+     * Указывает, воспроизводится ли AnimatedSprite в данный момент.
      *
      * @member {boolean}
      * @readonly
@@ -495,7 +495,7 @@ export class AnimatedSprite extends Sprite
     }
 
     /**
-     * Whether to use PIXI.Ticker.shared to auto update animation time
+     * Стоит ли использовать PIXI.Ticker.shared для автоматического обновления времени анимации
      *
      * @member {boolean}
      */
@@ -533,6 +533,6 @@ export interface FrameObject {
  * @memberof PIXI.AnimatedSprite
  * @typedef {object} FrameObject
  * @type {object}
- * @property {PIXI.Texture} texture - The {@link PIXI.Texture} of the frame
- * @property {number} time - the duration of the frame in ms
+ * @property {PIXI.Texture} texture -  {@link PIXI.Texture} кадра
+ * @property {number} time - длительность кадра в мс
  */
