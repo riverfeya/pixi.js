@@ -29,35 +29,35 @@ PixiJS - это библиотека рендеринга, которая поз
 
 PixiJS полностью поддерживает [WebGL](https://en.wikipedia.org/wiki/WebGL) и плавно возвращается к HTML5 [canvas](https://en.wikipedia.org/wiki/Canvas_element) если нужно. As a framework, PixiJS фантастический инструмент для создания интерактивного контента. Используйте его для создания насыщенных графикой интерактивных веб-сайтов, приложений и игр HTML5. Кросс-платформенная совместимость и постепенная деградация сразу после установки означают, что у вас меньше работы и больше удовольствия от ее выполнения! Если вы хотите относительно быстро создать безупречный и усовершенствованный опыт, не углубляясь в плотный, низкоуровневый код, и при этом избегая головной боли, связанной с несогласованностью браузера, тогда добавьте в свой следующий проект немного волшебства PixiJS!
 
-**Boost your development and feel free to use your imagination!**
+**Ускорьте свое развитие и не стесняйтесь использовать свое воображение!**
 
 ### Learn ###
-- Website: Find out more about PixiJS on the [official website](http://www.pixijs.com/).
-- Getting started: Check out @kittykatattack's comprehensive [tutorial](https://github.com/kittykatattack/learningPixi).
-- Examples: Get stuck right in and play around with PixiJS code and features right [here](http://pixijs.github.io/examples/)!
-- Docs: Get to know the PixiJS API by checking out the [docs](https://pixijs.github.io/docs/).
-- Wiki: Other misc tutorials and resources are [on the Wiki](https://github.com/pixijs/pixi.js/wiki).
+- Website: Узнайте больше о PixiJS на [Официальный сайт](http://www.pixijs.com/).
+- Начиная: Посмотрите @kittykatattack's исчерпывающий [туториал](https://github.com/kittykatattack/learningPixi).
+- Examples: Зависнуть играясь с кодом и фичами PixiJS можно [здесь](http://pixijs.github.io/examples/)!
+- Docs: Познакомьтесь с PixiJS API, на сайте [документации](https://pixijs.github.io/docs/).
+- Wiki: Другие различные руководства и ресурсы: [на Wiki](https://github.com/pixijs/pixi.js/wiki).
 
-### Community ###
+### Сообщество ###
 - Forums: Check out the [forum](http://www.html5gamedevs.com/forum/15-pixijs/) and [Stackoverflow](http://stackoverflow.com/search?q=pixi.js), both friendly places to ask your PixiJS questions.
 - Inspiration: Check out the [gallery](http://www.pixijs.com/gallery) to see some of the amazing things people have created!
-- Chat: You can join us on [Gitter](https://gitter.im/pixijs/pixi.js) To chat about PixiJS. We also now have a Slack channel. If you would like to join it please Send me an email (mat@goodboydigital.com) and I will invite you in.
+- Chat: Вы можете присоединиться к нам на [Gitter](https://gitter.im/pixijs/pixi.js) Чтобы поговорить о PixiJS. У нас также есть канал Slack. Если вы хотите присоединиться к нему, пришлите мне электронное письмо (mat@goodboydigital.com) и я приглашу вас.
 
 
-### Setup ###
+### Настройка ###
 
-It's easy to get started with PixiJS! Simply download a [prebuilt build](https://github.com/pixijs/pixi.js/wiki/FAQs#where-can-i-get-a-build)!
+Начать работу с PixiJS просто! Загрузите [готовую сборку](https://github.com/pixijs/pixi.js/wiki/FAQs#where-can-i-get-a-build)!
 
-Alternatively, PixiJS can be installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or simply using a content delivery network (CDN) URL to embed PixiJS directly on your HTML page.
+Или, установите PixiJS с помощью [npm](https://docs.npmjs.com/getting-started/what-is-npm) или просто используя сеть доставки контента (CDN) URL для вставки PixiJS прямо на свою страницу HTML.
 
-_Note: After v4.5.0, support for the [Bower](https://bower.io) package manager has been dropped. Please see the [release notes](https://github.com/pixijs/pixi.js/releases/tag/v4.5.0) for more information._
+_Note: С версии v4.5.0, поддержка пакетного менеджера [Bower](https://bower.io) была прекращена. Пожалуйста, посмотрите [release notes](https://github.com/pixijs/pixi.js/releases/tag/v4.5.0) чтобы узнать больше._
 
 #### NPM Install
 
 ```sh
 npm install pixi.js
 ```
-There is no default export. The correct way to import PixiJS is:
+Нет экспорта по умолчанию. Правильный способ импорта PixiJS::
 
 ```js
 import * as PIXI from 'pixi.js'
@@ -69,7 +69,7 @@ import * as PIXI from 'pixi.js'
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
 ```
 
-_Note: `5.1.3` can be replaced by any [released](https://github.com/pixijs/pixi.js/releases) version._
+_Note: `5.1.3` можно заменить любым [released](https://github.com/pixijs/pixi.js/releases) версией._
 
 ### Demos ###
 
@@ -85,8 +85,8 @@ _Note: `5.1.3` can be replaced by any [released](https://github.com/pixijs/pixi.
 - [photonstorm's Balls Demo](http://gametest.mobi/pixi/balls)
 - [photonstorm's Morph Demo](http://gametest.mobi/pixi/morph)
 
-Thanks to [@photonstorm](https://twitter.com/photonstorm) for providing
-those last 2 examples and allowing us to share the source code :)
+Спасибо [@photonstorm](https://twitter.com/photonstorm) за предоставленные
+эти последние 2 примера и позволяющие нам поделиться исходным кодом :)
 
 ### Contribute ###
 
@@ -99,14 +99,14 @@ before submitting changes.
 
 ### Current features ###
 
-- WebGL renderer (with automatic smart batching allowing for REALLY fast performance)
-- Canvas renderer (Fastest in town!)
+- WebGL renderer (с автоматическим интеллектуальным дозированием, обеспечивающим ДЕЙСТВИТЕЛЬНО высокую производительность)
+- Canvas renderer (Самый быстрый в городе!)
 - Full scene graph
-- Super easy to use API (similar to the flash display list API)
-- Support for texture atlases
-- Asset loader / sprite sheet loader
-- Auto-detect which renderer should be used
-- Full Mouse and Multi-touch Interaction
+- Супер простой в использовании API (аналогично списку отображения flash API)
+- Поддержка текстурных атласов
+- Загрузчик ресурсов / загрузчик листов спрайтов
+- Автоматическое определение того, какой рендерер следует использовать
+- Полноценное взаимодействие с мышью и мультитач
 - Text
 - BitmapFont text
 - Multiline Text
@@ -116,75 +116,75 @@ before submitting changes.
 - Filters
 - [User Plugins](https://github.com/pixijs/pixi.js/wiki/v5-Resources)
 
-### Basic Usage Example ###
+### Базовый пример использования ###
 
 ```js
 import * as PIXI from 'pixi.js';
 
-// The application will create a renderer using WebGL, if possible,
-// with a fallback to a canvas render. It will also setup the ticker
-// and the root stage PIXI.Container
+// Если возможно, приложение создаст средство визуализации с использованием WebGL.,
+// с откатом к рендерингу холста. Он также установит тикер
+// и корневой stage PIXI.Container
 const app = new PIXI.Application();
 
-// The application will create a canvas element for you that you
-// can then insert into the DOM
+// Приложение создаст для вас элемент холста, который вы
+// затем можно вставить в DOM
 document.body.appendChild(app.view);
 
-// load the texture we need
+// загружаем нужную нам текстуру
 app.loader.add('bunny', 'bunny.png').load((loader, resources) => {
-    // This creates a texture from a 'bunny.png' image
+    // Это создает текстуру из изображения 'bunny.png'
     const bunny = new PIXI.Sprite(resources.bunny.texture);
 
-    // Setup the position of the bunny
+    // Настройте положение кролика
     bunny.x = app.renderer.width / 2;
     bunny.y = app.renderer.height / 2;
 
-    // Rotate around the center
+    // Повернуть вокруг центра
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    // Add the bunny to the scene we are building
+    // Добавьте кролика на сцену, которую мы строим
     app.stage.addChild(bunny);
 
-    // Listen for frame updates
+    // Слушайте обновления кадров
     app.ticker.add(() => {
-         // each frame we spin the bunny around a bit
+         // каждый кадр мы немного крутим кролика
         bunny.rotation += 0.01;
     });
 });
 ```
 
-### How to build ###
+### Как делать сборку ###
 
-Note that for most users you don't need to build this project. If all you want is to use PixiJS, then
-just download one of our [prebuilt releases](https://github.com/pixijs/pixi.js/releases). Really
-the only time you should need to build PixiJS is if you are developing it.
+Обратите внимание, что для большинства пользователей создавать этот проект не требуется. Если все, что вам нужно, это использовать PixiJS, тогда
+просто загрузите один из наших [готовых выпусков] (https://github.com/pixijs/pixi.js/releases). В самом деле
+Единственный раз, когда вам может понадобиться собрать PixiJS, - это если вы его разрабатываете.
 
-If you don't already have Node.js and NPM, go install them. Then, in the folder where you have cloned
-the repository, install the build dependencies using npm:
+Если у вас еще нет Node.js и NPM, установите их. Затем в папке, в которую вы клонировали
+репозиторий, установите зависимости сборки с помощью npm:
 
 ```sh
 npm install
 ```
 
-Then, to build the source, run:
+Затем, чтобы собрать исходный код, запустите:
 
 ```sh
 npm run build
 ```
 
-### How to generate the documentation ###
+### Как создать документацию ###
 
-The docs can be generated using npm:
+Документы можно создать с помощью npm:
 
 ```sh
 npm run docs
 ```
 
-The documentation uses JSDocs in combination with this template [pixi-jsdoc-template](https://github.com/pixijs/pixi-jsdoc-template). The configuration file can be found at [jsdoc.conf.json](jsdoc.conf.json)
+В документации используется JSDocs в сочетании с этим шаблоном [pixi-jsdoc-template](https://github.com/pixijs/pixi-jsdoc-template). Файл конфигурации можно найти по адресу [jsdoc.conf.json](jsdoc.conf.json)
 
-### License ###
+### Лицензия ###
 
-This content is released under the (http://opensource.org/licenses/MIT) MIT License.
+Этот контент выпущен под (http://opensource.org/licenses/MIT) MIT License.
 
 [![Analytics](https://ga-beacon.appspot.com/UA-39213431-2/pixi.js/index)](https://github.com/igrigorik/ga-beacon)
