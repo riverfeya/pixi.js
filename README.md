@@ -6,16 +6,16 @@ PixiJS — HTML5 Творческий движок
 [![Inline docs](http://inch-ci.org/github/pixijs/pixi.js.svg?branch=dev)](http://inch-ci.org/github/pixijs/pixi.js)
 [![Node.js CI](https://github.com/pixijs/pixi.js/workflows/Node.js%20CI/badge.svg)](https://github.com/pixi.js/pixi.js/actions?query=workflow%3A%22Node.js+CI%22)
 
-The aim of this project is to provide a fast lightweight 2D library that works
-across all devices. The PixiJS renderer allows everyone to enjoy the power of
-hardware acceleration without prior knowledge of WebGL. Also, it's fast. Really fast.
+Цель этого проекта - предоставить быструю легкую 2D-библиотеку, которая работает
+на всех устройствах. Рендерер PixiJS позволяет каждому насладиться мощью
+аппаратного ускорения без предварительного знания WebGL. Кроме того, это быстро. Действительно быстро.
 
-If you want to keep up to date with the latest PixiJS news then feel free to follow us on twitter
+Если вы хотите быть в курсе последних новостей PixiJS, подпишитесь на нас в Twitter.
 ([@doormat23](https://twitter.com/doormat23), [@rolnaaba](https://twitter.com/rolnaaba), [@bigtimebuddy](https://twitter.com/bigtimebuddy), [@ivanpopelyshev](https://twitter.com/ivanpopelyshev))
-and we will keep you posted! You can also check back on [our site](http://www.pixijs.com)
-as any breakthroughs will be posted up there too!
+и мы будем держать вас в курсе! Вы также можете проверить [our site](http://www.pixijs.com)
+так как любые прорывы там тоже будут публиковаться!
 
-**We are now a part of the [Open Collective](https://opencollective.com/pixijs) and with your support you can help us make PixiJS even better. To make a donation, simply click the button below and we'll love you forever!**
+**Теперь мы являемся частью [Open Collective](https://opencollective.com/pixijs) и с вашей поддержкой вы можете помочь нам сделать PixiJS даже лучше. Чтобы сделать пожертвование, просто нажмите кнопку ниже, и мы будем любить вас вечно!**
 
 <div align="center">
   <a href="https://opencollective.com/pixijs/donate" target="_blank">
@@ -23,11 +23,11 @@ as any breakthroughs will be posted up there too!
   </a>
 </div>
 
-### What to Use PixiJS for and When to Use It
+### Для чего использовать PixiJS и когда его использовать
 
-PixiJS is a rendering library that will allow you to create rich, interactive graphics, cross platform applications, and games without having to dive into the WebGL API or deal with browser and device compatibility.
+PixiJS - это библиотека рендеринга, которая позволит вам создавать насыщенную интерактивную графику, кроссплатформенные приложения и игры без необходимости погружаться в WebGL API или заниматься совместимостью браузера и устройства.
 
-PixiJS has full [WebGL](https://en.wikipedia.org/wiki/WebGL) support and seamlessly falls back to HTML5's [canvas](https://en.wikipedia.org/wiki/Canvas_element) if needed. As a framework, PixiJS is a fantastic tool for authoring interactive content, *especially with the move away from Adobe Flash in recent years*. Use it for your graphics rich, interactive websites, applications, and HTML5 games.  Out of the box cross-platform compatibility and graceful degradation mean you have less work to do and have more fun doing it! If you want to create polished and refined experiences relatively quickly, without delving into dense, low level code, all while avoiding the headaches of browser inconsistencies, then sprinkle your next project with some PixiJS magic!
+PixiJS полностью поддерживает [WebGL](https://en.wikipedia.org/wiki/WebGL) и плавно возвращается к HTML5 [canvas](https://en.wikipedia.org/wiki/Canvas_element) если нужно. As a framework, PixiJS фантастический инструмент для создания интерактивного контента. Используйте его для создания насыщенных графикой интерактивных веб-сайтов, приложений и игр HTML5. Кросс-платформенная совместимость и постепенная деградация сразу после установки означают, что у вас меньше работы и больше удовольствия от ее выполнения! Если вы хотите относительно быстро создать безупречный и усовершенствованный опыт, не углубляясь в плотный, низкоуровневый код, и при этом избегая головной боли, связанной с несогласованностью браузера, тогда добавьте в свой следующий проект немного волшебства PixiJS!
 
 **Boost your development and feel free to use your imagination!**
 
