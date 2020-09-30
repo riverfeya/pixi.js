@@ -17,16 +17,16 @@ export type SpriteSource = TextureSource|Texture;
 export interface Sprite extends GlobalMixins.Sprite, Container {}
 
 /**
- * The Sprite object is the base for all textured objects that are rendered to the screen
+ * Объект Sprite является основой для всех текстурированных объектов, отображаемых на экране
 *
- * A sprite can be created directly from an image like this:
+ * Спрайт можно создать прямо из изображения следующим образом:
  *
  * ```js
  * let sprite = PIXI.Sprite.from('assets/image.png');
  * ```
  *
- * The more efficient way to create sprites is using a {@link PIXI.Spritesheet},
- * as swapping base textures when rendering to the screen is inefficient.
+ * Более эффективный способ создания спрайтов - использование {@link PIXI.Spritesheet},
+ * поскольку замена базовых текстур при рендеринге на экран неэффективна.
  *
  * ```js
  * PIXI.Loader.shared.add("assets/spritesheet.json").load(setup);
@@ -68,23 +68,23 @@ export class Sprite extends Container
     _tintRGB: number;
 
     /**
-     * @param {PIXI.Texture} [texture] - The texture for this sprite.
+     * @param {PIXI.Texture} [texture] - Текстура для этого спрайта.
      */
     constructor(texture: Texture)
     {
         super();
 
         /**
-         * The anchor point defines the normalized coordinates
-         * in the texture that map to the position of this
-         * sprite.
+         * anchor point определяет нормализованные координаты
+         * в текстуре, которая соответствует положению этого
+         * спрайт.
          *
-         * By default, this is `(0,0)` (or `texture.defaultAnchor`
-         * if you have modified that), which means the position
-         * `(x,y)` of this `Sprite` will be the top-left corner.
+         * По умолчанию это `(0,0)` (или `texture.defaultAnchor`
+         * если вы изменили это), что означает положение
+         * `(x,y)` этого `Sprite` будет в верхнем левом углу.
          *
-         * Note: Updating `texture.defaultAnchor` after
-         * constructing a `Sprite` does _not_ update its anchor.
+         * Note: Апдейт `texture.defaultAnchor` после
+         * построения `Sprite` _не_ обновляет его anchor.
          *
          * {@link https://docs.cocos2d-x.org/cocos2d-x/en/sprites/manipulation.html}
          *
@@ -100,7 +100,7 @@ export class Sprite extends Container
         );
 
         /**
-         * The texture that the sprite is using
+         * Текстура, которую использует спрайт
          *
          * @private
          * @member {PIXI.Texture}
@@ -108,7 +108,7 @@ export class Sprite extends Container
         this._texture = null;
 
         /**
-         * The width of the sprite (this is initially set by the texture)
+         * Ширина спрайта (это изначально устанавливается текстурой)
          *
          * @protected
          * @member {number}
@@ -116,7 +116,7 @@ export class Sprite extends Container
         this._width = 0;
 
         /**
-         * The height of the sprite (this is initially set by the texture)
+         * высотаСпрайта (изначальноЗадаетсяТекстурой)
          *
          * @protected
          * @member {number}
@@ -124,7 +124,7 @@ export class Sprite extends Container
         this._height = 0;
 
         /**
-         * The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
+         * Оттенок, примененный к спрайту. Это шестнадцатеричное значение. Значение 0xFFFFFF удалит любой эффект оттенка..
          *
          * @private
          * @member {number}
@@ -133,7 +133,7 @@ export class Sprite extends Container
         this._tint = null;
 
         /**
-         * The tint applied to the sprite. This is a RGB value. A value of 0xFFFFFF will remove any tint effect.
+         * Оттенок, примененный к спрайту. Это значение RGB. Значение 0xFFFFFF удалит любой эффект оттенка..
          *
          * @private
          * @member {number}
@@ -144,7 +144,7 @@ export class Sprite extends Container
         this.tint = 0xFFFFFF;
 
         /**
-         * The blend mode to be applied to the sprite. Apply a value of `PIXI.BLEND_MODES.NORMAL` to reset the blend mode.
+         * Режим наложения, применяемый к спрайту.Примените значение PIXI.BLEND_MODES.NORMAL для сброса режима наложения..
          *
          * @member {number}
          * @default PIXI.BLEND_MODES.NORMAL
@@ -153,8 +153,8 @@ export class Sprite extends Container
         this.blendMode = BLEND_MODES.NORMAL;
 
         /**
-         * Cached tint value so we can tell when the tint is changed.
-         * Value is used for 2d CanvasRenderer.
+         * Кэшированное значение оттенка, чтобы мы могли узнать, когда оттенок изменился.
+         * Значение используется для 2d CanvasRenderer.
          *
          * @protected
          * @member {number}
@@ -163,19 +163,19 @@ export class Sprite extends Container
         this._cachedTint = 0xFFFFFF;
 
         /**
-         * this is used to store the uvs data of the sprite, assigned at the same time
-         * as the vertexData in calculateVertices()
+         * это используется для хранения данных uvs спрайта, назначенных одновременно
+         * как vertexData в calculateVertices ()
          *
          * @private
          * @member {Float32Array}
          */
         this.uvs = null;
 
-        // call texture setter
+        // вызов установщика текстуры
         this.texture = texture || Texture.EMPTY;
 
         /**
-         * this is used to store the vertex data of the sprite (basically a quad)
+         * это используется для хранения данных вершин спрайта (в основном четырехугольника)
          *
          * @private
          * @member {Float32Array}
@@ -183,7 +183,7 @@ export class Sprite extends Container
         this.vertexData = new Float32Array(8);
 
         /**
-         * This is used to calculate the bounds of the object IF it is a trimmed sprite
+         * Используется для вычисления границ объекта, ЕСЛИ это обрезанный спрайт.
          *
          * @private
          * @member {Float32Array}
@@ -196,13 +196,13 @@ export class Sprite extends Container
         this._transformTrimmedID = -1;
         this._textureTrimmedID = -1;
 
-        // Batchable stuff..
-        // TODO could make this a mixin?
+        // Batchable вещи..
+        // TODO мог бы сделать это миксином?
         this.indices = indices;
 
         /**
-         * Plugin that is responsible for rendering this element.
-         * Allows to customize the rendering process without overriding '_render' & '_renderCanvas' methods.
+         * Плагин, отвечающий за рендеринг этого элемента.
+         * Позволяет настроить процесс рендеринга без переопределения методов '_render' и '_renderCanvas'.
          *
          * @member {string}
          * @default 'batch'
@@ -210,13 +210,13 @@ export class Sprite extends Container
         this.pluginName = 'batch';
 
         /**
-         * used to fast check if a sprite is.. a sprite!
+         * используется для быстрой проверки, является ли спрайт .. спрайтом!
          * @member {boolean}
          */
         this.isSprite = true;
 
         /**
-         * Internal roundPixels field
+         * Внутреннее поле roundPixels
          *
          * @member {boolean}
          * @private
@@ -225,7 +225,7 @@ export class Sprite extends Container
     }
 
     /**
-     * When the texture is updated, this event will fire to update the scale and frame
+     * Когда текстура обновляется, это событие срабатывает, чтобы обновить масштаб и кадр.
      *
      * @protected
      */
@@ -235,7 +235,7 @@ export class Sprite extends Container
         this._textureTrimmedID = -1;
         this._cachedTint = 0xFFFFFF;
 
-        // so if _width is 0 then width was not set..
+        // поэтому, если _width равен 0, ширина не была установлена..
         if (this._width)
         {
             this.scale.x = sign(this.scale.x) * this._width / this._texture.orig.width;
@@ -248,7 +248,7 @@ export class Sprite extends Container
     }
 
     /**
-     * Called when the anchor position updates.
+     * Вызывается при обновлении позиции якоря.
      *
      * @private
      */
@@ -259,7 +259,7 @@ export class Sprite extends Container
     }
 
     /**
-     * calculates worldTransform * vertices, store it in vertexData
+     * вычисляет вершины worldTransform *, сохраняет их в vertexData
      */
     public calculateVertices(): void
     {
@@ -270,7 +270,7 @@ export class Sprite extends Container
             return;
         }
 
-        // update texture UV here, because base texture can be changed without calling `_onTextureUpdate`
+        // обновите текстуру UV здесь, потому что базовую текстуру можно изменить без вызова `_onTextureUpdate`
         if (this._textureID !== texture._updateID)
         {
             this.uvs = this._texture._uvs.uvsFloat32;
@@ -279,7 +279,7 @@ export class Sprite extends Container
         this._transformID = this.transform._worldID;
         this._textureID = texture._updateID;
 
-        // set the vertex data
+        // установить данные вершины
 
         const wt = this.transform.worldTransform;
         const a = wt.a;
@@ -300,8 +300,8 @@ export class Sprite extends Container
 
         if (trim)
         {
-            // if the sprite is trimmed and is not a tilingsprite then we need to add the extra
-            // space before transforming the sprite coords.
+            // если спрайт обрезан и не является тайлинг-спрайтом, нам нужно добавить дополнительные
+            // пробел перед преобразованием координат спрайта.
             w1 = trim.x - (anchor._x * orig.width);
             w0 = w1 + trim.width;
 
@@ -345,8 +345,8 @@ export class Sprite extends Container
     }
 
     /**
-     * calculates worldTransform * vertices for a non texture with a trim. store it in vertexTrimmedData
-     * This is used to ensure that the true width and height of a trimmed texture is respected
+     * вычисляет вершины worldTransform * для не текстуры с обрезкой. сохранить его в vertexTrimmedData
+     * Это используется для обеспечения соблюдения истинной ширины и высоты обрезанной текстуры.
      */
     public calculateTrimmedVertices(): void
     {
@@ -362,13 +362,13 @@ export class Sprite extends Container
         this._transformTrimmedID = this.transform._worldID;
         this._textureTrimmedID = this._texture._updateID;
 
-        // lets do some special trim code!
+        // давайте сделаем специальный код обрезки!
         const texture = this._texture;
         const vertexData = this.vertexTrimmedData;
         const orig = texture.orig;
         const anchor = this._anchor;
 
-        // lets calculate the new untrimmed bounds..
+        // давайте вычислим новые необрезанные границы ..
         const wt = this.transform.worldTransform;
         const a = wt.a;
         const b = wt.b;
@@ -402,10 +402,10 @@ export class Sprite extends Container
 
     /**
     *
-    * Renders the object using the WebGL renderer
+    * Визуализирует объект с помощью средства визуализации WebGL
     *
     * @protected
-    * @param {PIXI.Renderer} renderer - The webgl renderer to use.
+    * @param {PIXI.Renderer} renderer - Используемый рендерер webgl.
     */
     protected _render(renderer: Renderer): void
     {
@@ -416,7 +416,7 @@ export class Sprite extends Container
     }
 
     /**
-     * Updates the bounds of the sprite.
+     * Обновляет границы спрайта.
      *
      * @protected
      */
@@ -425,30 +425,30 @@ export class Sprite extends Container
         const trim = this._texture.trim;
         const orig = this._texture.orig;
 
-        // First lets check to see if the current texture has a trim..
+        // Сначала давайте проверим, есть ли обрезка у текущей текстуры.
         if (!trim || (trim.width === orig.width && trim.height === orig.height))
         {
-            // no trim! lets use the usual calculations..
+            // без обрезки! воспользуемся обычными расчетами ..
             this.calculateVertices();
             this._bounds.addQuad(this.vertexData);
         }
         else
         {
-            // lets calculate a special trimmed bounds...
+            // позволяет вычислить специальные усеченные границы ...
             this.calculateTrimmedVertices();
             this._bounds.addQuad(this.vertexTrimmedData);
         }
     }
 
     /**
-     * Gets the local bounds of the sprite object.
+     * Получает локальные границы объекта спрайта.
      *
-     * @param {PIXI.Rectangle} [rect] - Optional output rectangle.
-     * @return {PIXI.Rectangle} The bounds.
+     * @param {PIXI.Rectangle} [rect] - Дополнительный выходной прямоугольник.
+     * @return {PIXI.Rectangle} Границы.
      */
     public getLocalBounds(rect?: Rectangle): Rectangle
     {
-        // we can do a fast local bounds if the sprite has no children!
+        // мы можем сделать быстрые локальные границы, если у спрайта нет дочерних элементов!
         if (this.children.length === 0)
         {
             this._bounds.minX = this._texture.orig.width * -this._anchor._x;
@@ -473,10 +473,10 @@ export class Sprite extends Container
     }
 
     /**
-     * Tests if a point is inside this sprite
+     * Проверяет, находится ли точка внутри этого спрайта
      *
-     * @param {PIXI.IPointData} point - the point to test
-     * @return {boolean} the result of the test
+     * @param {PIXI.IPointData} point - точка для проверки
+     * @return {boolean} результат теста
      */
     public containsPoint(point: IPointData): boolean
     {
@@ -501,14 +501,14 @@ export class Sprite extends Container
     }
 
     /**
-     * Destroys this sprite and optionally its texture and children
+     * Уничтожает этот спрайт и, возможно, его текстуру и дочерние элементы
      *
-     * @param {object|boolean} [options] - Options parameter. A boolean will act as if all options
-     *  have been set to that value
-     * @param {boolean} [options.children=false] - if set to true, all the children will have their destroy
-     *      method called as well. 'options' will be passed on to those calls.
-     * @param {boolean} [options.texture=false] - Should it destroy the current texture of the sprite as well
-     * @param {boolean} [options.baseTexture=false] - Should it destroy the base texture of the sprite as well
+     * @param {object|boolean} [options] - Параметр опций. Логическое значение будет действовать так, как если бы все параметры
+     *  были установлены на это значение
+     * @param {boolean} [options.children=false] - если установлено значение true, у всех потомков также будет вызван 
+     *      метод destroy (). 'options' будут переданы этим вызовам.
+     * @param {boolean} [options.texture=false] - Должна ли также уничтожаться текущая текстура спрайта
+     * @param {boolean} [options.baseTexture=false] - Должна ли также уничтожаться base texture спрайта
      */
     public destroy(options: IDestroyOptions|boolean): void
     {
@@ -530,16 +530,16 @@ export class Sprite extends Container
         this._texture = null;
     }
 
-    // some helper functions..
+    // некоторые вспомогательные функции..
 
     /**
-     * Helper function that creates a new sprite based on the source you provide.
-     * The source can be - frame id, image url, video url, canvas element, video element, base texture
+     * Вспомогательная функция, которая создает новый спрайт на основе предоставленного вами источника..
+     * Источник может быть - frame id, image url, video url, canvas element, video element, base texture
      *
      * @static
-     * @param {string|PIXI.Texture|HTMLCanvasElement|HTMLVideoElement} source - Source to create texture from
-     * @param {object} [options] - See {@link PIXI.BaseTexture}'s constructor for options.
-     * @return {PIXI.Sprite} The newly created sprite
+     * @param {string|PIXI.Texture|HTMLCanvasElement|HTMLVideoElement} source - Источник для создания текстуры из
+     * @param {object} [options] - см. конструктор {@link PIXI.BaseTexture} на предмет возможных опций.
+     * @return {PIXI.Sprite} Вновь созданный спрайт
      */
     static from(source: SpriteSource, options: IBaseTextureOptions): Sprite
     {
@@ -551,10 +551,10 @@ export class Sprite extends Container
     }
 
     /**
-     * If true PixiJS will Math.floor() x/y values when rendering, stopping pixel interpolation.
-     * Advantages can include sharper image quality (like text) and faster rendering on canvas.
-     * The main disadvantage is movement of objects may appear less smooth.
-     * To set the global default, change {@link PIXI.settings.ROUND_PIXELS}
+     * Если true, PixiJS будет использовать Math.floor () значения x / y при рендеринге, останавливая интерполяцию пикселей..
+     * К преимуществам можно отнести более четкое изображение (например, текста) и более быструю визуализацию на холсте.
+     * Главный недостаток - движение предметов может казаться менее плавным.
+     * Чтобы установить глобальное значение по умолчанию, измените {@link PIXI.settings.ROUND_PIXELS}
      *
      * @member {boolean}
      * @default false
@@ -574,7 +574,7 @@ export class Sprite extends Container
     }
 
     /**
-     * The width of the sprite, setting this will actually modify the scale to achieve the value set
+     * Установка ширины спрайта фактически изменит масштаб для достижения установленного значения.
      *
      * @member {number}
      */
@@ -592,7 +592,7 @@ export class Sprite extends Container
     }
 
     /**
-     * The height of the sprite, setting this will actually modify the scale to achieve the value set
+     * Установка высоты спрайта фактически изменит масштаб для достижения установленного значения.
      *
      * @member {number}
      */
@@ -610,16 +610,16 @@ export class Sprite extends Container
     }
 
     /**
-     * The anchor sets the origin point of the sprite. The default value is taken from the {@link PIXI.Texture|Texture}
-     * and passed to the constructor.
+     * Якорь устанавливает исходную точку спрайта. Значение по умолчанию берется из {@link PIXI.Texture|Texture}
+     * и передается конструктору.
      *
-     * The default is `(0,0)`, this means the sprite's origin is the top left.
+     * По умолчанию `(0,0)`, это означает, что опорная точка спрайта находится в верхнем левом углу.
      *
-     * Setting the anchor to `(0.5,0.5)` means the sprite's origin is centered.
+     * Установка якоря на `(0.5,0.5)` означает, что источник спрайта центрирован.
      *
-     * Setting the anchor to `(1,1)` would mean the sprite's origin point will be the bottom right corner.
+     * Установка якоря на `(1,1)` будет означать, что исходная точка спрайта будет в правом нижнем углу.
      *
-     * If you pass only single parameter, it will set both x and y to the same value as shown in the example below.
+     * Если вы передадите только один параметр, он установит для x и y одно и то же значение, как показано в примере ниже..
      *
      * @example
      * const sprite = new PIXI.Sprite(texture);
@@ -638,8 +638,8 @@ export class Sprite extends Container
     }
 
     /**
-     * The tint applied to the sprite. This is a hex value.
-     * A value of 0xFFFFFF will remove any tint effect.
+     * Оттенок, примененный к спрайту. Это шестнадцатеричное значение.
+     * Значение 0xFFFFFF удалит любой эффект оттенка..
      *
      * @member {number}
      * @default 0xFFFFFF
@@ -656,7 +656,7 @@ export class Sprite extends Container
     }
 
     /**
-     * The texture that the sprite is using
+     * Текстура, которую использует спрайт
      *
      * @member {PIXI.Texture}
      */
@@ -685,7 +685,7 @@ export class Sprite extends Container
 
         if (value)
         {
-            // wait for the texture to load
+            // дождитесь загрузки текстуры
             if (value.baseTexture.valid)
             {
                 this._onTextureUpdate();

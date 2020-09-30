@@ -58,7 +58,7 @@ export class AnimatedSprite extends Sprite
      * объекты frame, составляющие анимацию.
      * @param {boolean} [autoUpdate=true] - Стоит ли использовать PIXI.Ticker.shared  а
      */
-    c оnstructor (textures: Texture[]|FrameObject[], autoUpdate = true)
+    cоnstructor (textures: Texture[]|FrameObject[], autoUpdate = true)
     {
         super(textures[0] instanceof Texture ? textures[0] : textures[0].texture);
 
