@@ -1,4 +1,4 @@
-PixiJS — The HTML5 Creation Engine
+PixiJS — HTML5 Творческий движок
 =============
 
 ![pixi.js logo](https://pixijs.download/pixijs-banner-v5.png)
